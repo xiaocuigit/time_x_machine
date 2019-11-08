@@ -1,0 +1,10 @@
+# 忽略以下目录包含的所有文件
+time_server/.DS_Store
+time_server/__pycache__/
+time_server/source/time_module/__pycache__/
+__pycache__/
+.idea/*.*
+.idea/
+.DS_Store
+.log
+.pkl
