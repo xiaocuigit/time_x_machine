@@ -11,14 +11,14 @@ import logging
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from time_server.source.time_module.time_normalizer import TimeNormalizer
 
 # 定义整体服务用到的日志文件
 logger = logging.getLogger("server_log")
 
 
 # 在这里定义在整个程序都会用到的类的实例
-# xxx
+time_normalizer = TimeNormalizer()
 
 
 # 服务的接口文档
@@ -41,9 +41,9 @@ def get_result(request):
     start_time = timeit.default_timer()
 
     # 时间归一化逻辑代码
-    # xxx
+    result = time_normalizer.parse(sentence)
 
     end_time = timeit.default_timer()
     logger.info("Full time consume: {0} S.\n".format(end_time - start_time))
     # 返回JSON格式数据，将 result_ner 替换成需要返回的JSON数据
-    return JsonResponse(None, json_dumps_params={'ensure_ascii': False})
+    return JsonResponse(result, json_dumps_params={'ensure_ascii': False})
