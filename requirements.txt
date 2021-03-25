@@ -1,5 +1,5 @@
 django==2.2
 requests==2.19.1
-pyyaml==5.1
+pyyaml==5.4
 arrow==0.15.4
 regex==2019.11.1
